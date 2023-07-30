@@ -1,4 +1,4 @@
-// CalculatorTests.cs
+
 using NUnit.Framework;
 using SimpleCalculator;
 
@@ -18,7 +18,7 @@ namespace SimpleCalculatorTests
         public void Add_AddsTwoNumbers_ReturnsSum()
         {
             var result = _calculator.Add(3, 4);
-            Assert.AreEqual(7, result);
+            Assert.That(result, Is.EqualTo(7));
         }
     }
 }
