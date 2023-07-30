@@ -23,10 +23,10 @@ jobs:
         dotnet-version: 7.0.306
 
     - name: Install dependencies
-      run: dotnet restore SimpleCalculator_Test.sln
+      run: dotnet restore SimpleCalculator.sln
 
     - name: Build
-      run: dotnet build SimpleCalculator_Test.sln --configuration Release --no-restore
+      run: dotnet build SimpleCalculator.sln --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test SimpleCalculator_Test.sln --no-restore --verbosity normal
+      run: dotnet test SimpleCalculator.sln --no-restore --verbosity normal
