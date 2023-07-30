@@ -1,0 +1,32 @@
+name: .NET Core CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.0.306
+
+    - name: Install dependencies
+      run: dotnet restore SimpleCalculator.sln
+
+    - name: Build
+      run: dotnet build SimpleCalculator.sln --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test SimpleCalculator.sln --no-restore --verbosity normal
