@@ -30,3 +30,4 @@ jobs:
 
     - name: Test
       run: dotnet test SimpleCalculator.sln --no-restore --verbosity normal
+
